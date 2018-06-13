@@ -1,0 +1,37 @@
+A B	2 / 2 - 1 1
+B A
+
+A B C	6 / 6 / 6 - 2 1 1
+A C B
+B - - * 2
+C - - * 2
+- - - * 2 * 3
+B A C
+B C A
+C A B
+C B A
+
+A B C D	- 24 / 24 / 24 / 24 - 6 2 1 1
+A B D C
+A C B D
+A C D B
+A D B C
+A D C B 
+B - - - * 6
+C - - - * 6
+D - - - * 6
+- - - - * 6 * 4
+
+A B C D E
+A B C E D
+A B D C E
+- - - - -
+A E D B C - 24 / 24 / 24 / 24 / 24 - 24 6 2 1 1
+- - - - - * 24 * 5
+
+
+AA > AA
+AB > AB BA
+AAA > AAA
+AAB > AAB ABA AAB ABA BAA BAA > AAB ABA BAA
+ABC > See above

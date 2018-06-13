@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Grid.qml</file>
+        <file>Scripts/Shape.js</file>
+        <file>Scripts/Test.js</file>
+        <file>Scripts/Permutation_Test.js</file>
+        <file>factorial.txt</file>
+        <file>Old/DebugPanel.qml</file>
+        <file>Old/PermutationTest.qml</file>
+        <file>Old/PuzzleGrid.qml</file>
+        <file>V2/PuzzleGrid_.qml</file>
+        <file>V2/GridControls.qml</file>
+        <file>V2/ShapeList.qml</file>
+        <file>Components/ShapeFragment.qml</file>
+        <file>V2/Cell_.qml</file>
+        <file>Old/Cell.qml</file>
+        <file>Scripts/Permutation.js</file>
+    </qresource>
+</RCC>
