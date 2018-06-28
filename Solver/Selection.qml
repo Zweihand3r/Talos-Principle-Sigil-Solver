@@ -7,14 +7,18 @@ Item {
     width: 640
     height: 480
 
+    property var shapeArray: []
     property var selectorModel: ["T", "L", "J", "S", "2", "I", "O"]
     property int rows: 0
     property int columns: 0
 
-    signal selectionFinalised(var shapeArray)
+    signal selectionFinalised()
 
     function presentSelection() { x = 0 }
     function dismissSelection() { x = -width }
+
+    onXChanged: handleXChange()
+    Behavior on x { NumberAnimation { duration: 180; easing.type: Easing.InQuad } }
 
     Rectangle { anchors.fill: parent; color: "black"; opacity: 0.8 }
 
@@ -40,6 +44,24 @@ Item {
 
         ListModel {
             id: selectedModel
+        }
+
+        add: Transition {
+            NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 120 }
+            ScaleAnimator { from: 0.32; to: 1; duration: 120 }
+        }
+
+        remove: Transition {
+            NumberAnimation { property: "opacity"; from: 1; to: 0; duration: 120 }
+            ScaleAnimator { from: 1; to: 0.32; duration: 120 }
+        }
+
+        move: Transition {
+            NumberAnimation { properties: "x,y"; duration: 120 }
+        }
+
+        displaced: Transition {
+            NumberAnimation { properties: "x,y"; duration: 120 }
         }
     }
 
@@ -127,8 +149,8 @@ Item {
         var shapeOrder = ["I", "O", "T", "J", "L", "S", "2"]
         var orderMap = { "I": 0, "O": 1, "T": 2, "J": 3, "L": 4, "S": 5, "2": 6 }
         var shapeSplit = shapeStr.split("")
-        var shapeArr = []
         var sortArr = []
+        shapeArray = []
 
         shapeSplit.forEach(function(item) {
             sortArr.push(orderMap[item])
@@ -136,10 +158,15 @@ Item {
 
         sortArr.sort()
         sortArr.forEach(function(index) {
-            shapeArr.push(shapeOrder[index])
+            shapeArray.push(shapeOrder[index])
         })
 
-        selectionFinalised(shapeArr)
         dismissSelection()
+    }
+
+    function handleXChange() {
+        if (x === -width) {
+            selectionFinalised()
+        }
     }
 }

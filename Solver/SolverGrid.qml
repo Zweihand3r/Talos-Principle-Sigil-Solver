@@ -27,11 +27,20 @@ Rectangle {
     }
 
     Rectangle {
-        width: 44; height: 44; border { width: 2; color: "white" } radius: width / 2; color: "transparent"
+        id: menuIndicator
+        width: 44; height: 44; scale: 0; border { width: 2; color: "white" } radius: width / 2; color: "transparent"
         anchors { left: selection.right; verticalCenter: parent.verticalCenter; leftMargin: 12 }
         Rectangle { anchors { fill: parent; margins: 2 } color: "black"; opacity: 0.8; radius: width / 2 }
         Text { anchors { centerIn: parent; verticalCenterOffset: -2 } text: ">"; font.pixelSize: 27; color: "white" }
-        MouseArea { anchors.fill: parent; onClicked: selection.presentSelection() }
+        MouseArea { anchors.fill: parent; onClicked: { selection.presentSelection(); menuIndicator.scale = 0 } }
+        Behavior on scale { ScaleAnimator { duration: 120 } }
+    }
+
+    Timer {
+        id: drawTimer
+        repeat: true; running: false
+        triggeredOnStart: true; interval: gridFunctions.drawInterval
+        onTriggered: gridFunctions.drawingLoop()
     }
 
     function initialiseGrid(rows, columns, shapeArray) { gridFunctions.initialiseGrid(rows, columns, shapeArray) }
@@ -40,21 +49,21 @@ Rectangle {
         id: computeFunctions
 
         function permuteRandom(shapeArr) {
-            var index = 0
-            var maxIteration = Permute.value(shapeArr.length)
+            var resetIndex = 0
             var tracker = {}
             var shapeDictionary = shapeFunctions.getDictionary()
 
             while (true) {
                 shuffleArray(shapeArr)
-                console.log("Shuffled")
                 var shapeStr = shapeArr.join("")
                 if (tracker[shapeStr] !== undefined) {
-                    continue
+                    if (resetIndex < shapeArr.length * 24) { resetIndex++; continue }
+                    else return
                 }
 
-                console.log("Checking fit for shapes > " + (index + 1) + ": " + shapeStr)
+                resetIndex = 0
                 tracker[shapeStr] = 1
+                console.log("Checking fit for shapes: " + shapeStr)
 
                 var shapesMat = []
                 shapesMat.push(shapeFunctions.getInitialKeys(shapeArr[0]))
@@ -218,7 +227,15 @@ Rectangle {
     QtObject {
         id: gridFunctions
 
+        property var positionSequence: []
+        property var tints: []
+        property int positionIndex: 0
+        property int shapeIndex: 0
+        property int drawInterval: 44
+
         function initialiseGrid(rows, columns, shapeArray) {
+            menuIndicator.scale = 1
+
             if ((rows === 0 || !rows) && (columns === 0 || !columns)) {
                 console.log("Not enough arguments")
                 return
@@ -269,18 +286,37 @@ Rectangle {
             }
         }
 
-        function drawShape(positions) {
-            var tint = Qt.rgba(Math.random(), Math.random(), Math.random(), 1)
-            positions.forEach(function(position) {
-                population[position[0]][position[1]] = true
-                cellGridArr[position[0]][position[1]].color = tint
-            })
+        function drawPosition() {
+            var position = positionSequence[shapeIndex][positionIndex]
+            population[position[0]][position[1]] = true
+            cellGridArr[position[0]][position[1]].draw(tints[shapeIndex])
         }
 
         function drawSequence(positionSequence) {
-            positionSequence.forEach(function(positions) {
-                drawShape(positions)
+            gridFunctions.positionSequence = positionSequence
+            positionIndex = 0
+            shapeIndex = 0
+
+            tints = []
+            positionSequence.forEach(function() {
+                tints.push(Qt.rgba(Math.random(), Math.random(), Math.random(), 1))
             })
+
+            drawTimer.start()
+        }
+
+        function drawingLoop() {
+            drawPosition()
+
+            if (positionIndex < 3) positionIndex++
+            else {
+                if (shapeIndex < positionSequence.length - 1) {
+                    positionIndex = 0
+                    shapeIndex++
+                }
+                else drawTimer.stop()
+            }
+
         }
 
         function getEmptyPopulation() {
