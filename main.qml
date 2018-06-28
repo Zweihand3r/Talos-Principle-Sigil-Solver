@@ -3,29 +3,40 @@ import QtQuick.Window 2.2
 
 import './Old'
 import './V2'
+import './Solver'
 
 Window {
     id: mainWindow
     visible: true
     width: 640
-    height: 640
+    height: 480
     title: qsTr("Sigil Solver")
 
 //    PuzzleGrid {
 //        id: puzzleGrid
 //    }
 
-    PuzzleGrid_ {
-        id: puzzleGrid_
-        onWidthChanged: mainWindow.width = width
-        onHeightChanged: mainWindow.height = height
+//    PuzzleGrid_ {
+//        id: puzzleGrid_
+//        onWidthChanged: mainWindow.width = width
+//        onHeightChanged: mainWindow.height = height
 
 //        Component.onCompleted: compareVersions()
-    }
+//    }
 
 //    PermutationTest {
 
 //    }
+
+//    V3 {
+//        onWidthChanged: mainWindow.width = width
+//        onHeightChanged: mainWindow.height = height
+//    }
+
+    SolverGrid {
+        onWidthChanged: mainWindow.width = width
+        onHeightChanged: mainWindow.height = height
+    }
 
     function compareVersions() {
         var rows = 6

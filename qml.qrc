@@ -16,5 +16,16 @@
         <file>V2/Cell_.qml</file>
         <file>Old/Cell.qml</file>
         <file>Scripts/Permutation.js</file>
+        <file>V3.qml</file>
+        <file>Solver/SolverGrid.qml</file>
+        <file>Solver/Selection.qml</file>
+        <file>Images/2.png</file>
+        <file>Images/I.png</file>
+        <file>Images/J.png</file>
+        <file>Images/L.png</file>
+        <file>Images/O.png</file>
+        <file>Images/S.png</file>
+        <file>Images/T.png</file>
+        <file>Solver/Cell_Plain.qml</file>
     </qresource>
 </RCC>

@@ -58,6 +58,14 @@ function variant(mat) {
     return res
 }
 
+function value(int) {
+    var res = 1
+    for (var index = int; index > 0; index--) {
+        res *= index
+    }
+    return res
+}
+
 /* --------------------------------------------------- */
 
 function permute_x2(arr) {
@@ -84,6 +92,10 @@ function permuteVariant_x2(arr) {
 }
 
 /* --------------------------------------------------- */
+
+function moveArrayElement(array, from, to) {
+    array.move(from, to)
+}
 
 Array.prototype.move = function(from, to) {
     this.splice(to, 0, this.splice(from, 1)[0])
