@@ -30,7 +30,7 @@ Item {
         model: selectedModel
         delegate: Image {
             width: 64; height: 64
-            source: '../Images/' + shape + '.png'
+            source: 'qrc:/Images/' + shape + '.png'
             opacity: clicky.containsMouse ? 0.32 : 1
             Behavior on opacity { OpacityAnimator { duration: 120 } }
 
@@ -121,7 +121,7 @@ Item {
                 model: selectorModel
                 Image {
                     Layout.preferredWidth: 44; Layout.preferredHeight: 44
-                    source: '../Images/' + modelData + '.png'
+                    source: 'qrc:/Images/' + modelData + '.png'
                     scale: mouse.containsMouse ? (mouse.pressed ? 0.96 : 1.1) : 1
                     Behavior on scale { ScaleAnimator { duration: 80 } }
                     MouseArea {
