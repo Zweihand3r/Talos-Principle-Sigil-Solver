@@ -35,3 +35,14 @@ AB > AB BA
 AAA > AAA
 AAB > AAB ABA AAB ABA BAA BAA > AAB ABA BAA
 ABC > See above
+
+
+- INSERT ALGORITH -
+
+                1
+             21 - 12
+321 * 231 * 213 - 312 * 132 * 123
+ |
+ V
+4321 3421 3241 3214...
+

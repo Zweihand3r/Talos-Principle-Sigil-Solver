@@ -21,5 +21,7 @@
         <file>OldContent/Grid.qml</file>
         <file>OldContent/V3.qml</file>
         <file>OldContent/OldContent.qml</file>
+        <file>Content/Content.qml</file>
+        <file>Content/qml/CPP_Tests.qml</file>
     </qresource>
 </RCC>
