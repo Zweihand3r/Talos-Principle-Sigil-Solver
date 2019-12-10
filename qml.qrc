@@ -2,26 +2,27 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>factorial.txt</file>
-        <file>OldContent/Components/ShapeFragment.qml</file>
-        <file>OldContent/Old/Cell.qml</file>
-        <file>OldContent/Old/DebugPanel.qml</file>
-        <file>OldContent/Old/PermutationTest.qml</file>
-        <file>OldContent/Old/PuzzleGrid.qml</file>
-        <file>OldContent/Scripts/Permutation.js</file>
-        <file>OldContent/Scripts/Permutation_Test.js</file>
-        <file>OldContent/Scripts/Shape.js</file>
-        <file>OldContent/Scripts/Test.js</file>
-        <file>OldContent/Solver/Cell_Plain.qml</file>
-        <file>OldContent/Solver/Selection.qml</file>
-        <file>OldContent/Solver/SolverGrid.qml</file>
-        <file>OldContent/V2/Cell_.qml</file>
-        <file>OldContent/V2/GridControls.qml</file>
-        <file>OldContent/V2/PuzzleGrid_.qml</file>
-        <file>OldContent/V2/ShapeList.qml</file>
-        <file>OldContent/Grid.qml</file>
-        <file>OldContent/V3.qml</file>
-        <file>OldContent/OldContent.qml</file>
-        <file>Content/Content.qml</file>
-        <file>Content/qml/CPP_Tests.qml</file>
+        <file>Content_OLD/Components/ShapeFragment.qml</file>
+        <file>Content_OLD/Old/Cell.qml</file>
+        <file>Content_OLD/Old/DebugPanel.qml</file>
+        <file>Content_OLD/Old/PermutationTest.qml</file>
+        <file>Content_OLD/Old/PuzzleGrid.qml</file>
+        <file>Content_OLD/Scripts/Permutation.js</file>
+        <file>Content_OLD/Scripts/Permutation_Test.js</file>
+        <file>Content_OLD/Scripts/Shape.js</file>
+        <file>Content_OLD/Scripts/Test.js</file>
+        <file>Content_OLD/Solver/Cell_Plain.qml</file>
+        <file>Content_OLD/Solver/Selection.qml</file>
+        <file>Content_OLD/Solver/SolverGrid.qml</file>
+        <file>Content_OLD/V2/Cell_.qml</file>
+        <file>Content_OLD/V2/GridControls.qml</file>
+        <file>Content_OLD/V2/PuzzleGrid_.qml</file>
+        <file>Content_OLD/V2/ShapeList.qml</file>
+        <file>Content_OLD/Grid.qml</file>
+        <file>Content_OLD/V3.qml</file>
+        <file>Content_OLD/Content_OLD.qml</file>
+        <file>Content/js/Permutation.js</file>
+        <file>Content/qml/Content.qml</file>
+        <file>Content/qml/Tests.qml</file>
     </qresource>
 </RCC>

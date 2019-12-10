@@ -1,8 +1,8 @@
 import QtQuick 2.9
 import QtQuick.Window 2.2
 
-import './Content'
-import './OldContent'
+import './Content/qml'
+import './Content_OLD'
 
 Window {
     id: mainWindow
@@ -14,7 +14,7 @@ Window {
     property int applicationWidth: 640
     property int applicationHeight: 480
 
-    OldContent {}
+    Content_OLD {}
 
-    /*Content {}*/
+//    Content {}
 }
